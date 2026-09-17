@@ -1,0 +1,16 @@
+import React, { useEffect, useState } from 'react';
+import { ArrowRight, Coffee, Gift, Search } from 'lucide-react';
+import api from '../api/axiosInstance';
+
+export default function Redeem() {
+  const [search, setSearch] = useState('');
+  const [member, setMember] = useState(null);
+  const [rewards, setRewards] = useState([]);
+  const [message, setMessage] = useState('');
+  const [busy, setBusy] = useState(false);
+
+  useEffect(() => { api.get('/rewards').then(({ data }) => setRewards(data.items)); }, []);
+  async function findMember(event) { event.preventDefault(); setMessage(''); try { const { data } = await api.get(`/members?search=${encodeURIComponent(search)}&limit=1`); setMember(data.members[0] || null); if (!data.members[0]) setMessage('No member found. Try their phone number again.'); } catch { setMessage('Could not search the member directory.'); } }
+  async function redeem(item) { if (!member || member.balance < item.cost || !window.confirm(`Redeem ${item.name} for ${item.cost} points?`)) return; setBusy(true); try { const { data } = await api.post(`/members/${member._id}/redemptions`, { itemId: item._id }); setMember(data.member); setMessage(`${item.name} redeemed successfully.`); } catch (error) { setMessage(error.response?.data?.message || 'Redemption could not be completed.'); } finally { setBusy(false); } }
+  return <div className="page-width app-page redeem-page"><div className="page-heading"><div><span className="eyebrow">REWARD COUNTER</span><h1>Give them<br /><em>the good stuff.</em></h1></div><div className="status"><i /> Ready to redeem</div></div><form className="searchbar redeem-search" onSubmit={findMember}><Search size={20} /><input value={search} onChange={event => setSearch(event.target.value)} placeholder="Find a member by phone number" required /><button className="button dark">Find member</button></form>{message && <div className="notice">{message}</div>}{member ? <><section className="redeem-member"><div className="member-avatar">{member.name.slice(0, 2).toUpperCase()}</div><div><span className="eyebrow">SELECTED MEMBER</span><h2>{member.name}</h2><p>{member.phone} · <b className={`tier-text ${member.tier.toLowerCase()}`}>{member.tier}</b></p></div><div className="redeem-balance"><span>Available balance</span><strong>{member.balance}<small> pts</small></strong></div></section><section className="catalog-head"><div><span className="eyebrow">CATALOGUE</span><h2>Choose a reward</h2></div><Gift size={22} /></section><div className="reward-catalog">{rewards.map(item => { const canRedeem = member.balance >= item.cost; return <button className={`catalog-item ${!canRedeem ? 'disabled' : ''}`} key={item._id} disabled={!canRedeem || busy} onClick={() => redeem(item)}><span className="catalog-icon"><Coffee size={20} /></span><span className="catalog-copy"><b>{item.name}</b><small>{item.description}</small><em>{item.category}</em></span><span className="catalog-cost">{item.cost}<small> pts</small><ArrowRight size={16} /></span></button>; })}</div></> : <div className="redeem-empty"><Gift size={38} /><h2>Find a member to begin.</h2><p>Their live balance will appear here, along with every reward they can take home today.</p></div>}</div>;
+}

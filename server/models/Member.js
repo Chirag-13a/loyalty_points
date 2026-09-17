@@ -1,0 +1,2 @@
+const mongoose = require('mongoose');
+module.exports = mongoose.model('Member', new mongoose.Schema({ name: { type: String, required: true, trim: true }, phone: { type: String, required: true, unique: true, index: true }, email: String, profilePhoto: String, tier: { type: String, default: 'Bronze' }, balance: { type: Number, default: 0 }, lifetimePoints: { type: Number, default: 0 } }, { timestamps: true }));

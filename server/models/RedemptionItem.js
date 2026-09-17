@@ -1,0 +1,2 @@
+const mongoose = require('mongoose');
+module.exports = mongoose.model('RedemptionItem', new mongoose.Schema({ name: { type: String, required: true }, cost: { type: Number, required: true }, category: String, description: String, imageUrl: String, available: { type: Boolean, default: true } }));

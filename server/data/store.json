@@ -1,0 +1,205 @@
+{
+  "memberUsers": [],
+  "offers": [
+    {
+      "_id": "offer-weekend",
+      "title": "Double points weekend",
+      "description": "Every Saturday and Sunday, your purchases earn twice the usual points.",
+      "validTill": "2026-12-31T00:00:00.000Z",
+      "imageUrl": "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=80",
+      "active": true
+    },
+    {
+      "_id": "offer-birthday",
+      "title": "Birthday pastry",
+      "description": "A little something sweet on your birthday month.",
+      "validTill": "2026-12-31T00:00:00.000Z",
+      "imageUrl": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80",
+      "active": true
+    }
+  ],
+  "menuItems": [
+    {
+      "_id": "menu-flat-white",
+      "name": "Flat white",
+      "category": "Coffee",
+      "price": 180,
+      "description": "Velvety espresso with silky steamed milk.",
+      "imageUrl": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80",
+      "available": true
+    },
+    {
+      "_id": "menu-cold-brew",
+      "name": "Cold brew",
+      "category": "Coffee",
+      "price": 220,
+      "description": "Slow-steeped, smooth, and quietly bold.",
+      "imageUrl": "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80",
+      "available": true
+    },
+    {
+      "_id": "menu-chai",
+      "name": "Masala chai",
+      "category": "Tea",
+      "price": 160,
+      "description": "Black tea, warm spice, and a little comfort.",
+      "imageUrl": "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=800&q=80",
+      "available": true
+    },
+    {
+      "_id": "menu-croissant",
+      "name": "Almond croissant",
+      "category": "Pastries",
+      "price": 240,
+      "description": "Buttery layers with toasted almond cream.",
+      "imageUrl": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80",
+      "available": true
+    },
+    {
+      "_id": "menu-toast",
+      "name": "Avocado toast",
+      "category": "Snacks",
+      "price": 320,
+      "description": "Sourdough, avocado, herbs, and lemon.",
+      "imageUrl": "https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?auto=format&fit=crop&w=800&q=80",
+      "available": true
+    }
+  ],
+  "staffUsers": [
+    {
+      "_id": "staff-b7e5f50b-5a32-4806-86e9-c79595788733",
+      "name": "chirag agarwal",
+      "email": "chiragagarwal1947@gmail.com",
+      "passwordHash": "$2a$10$TJ2dXWXC2f93C.cWnYXw1.RPJ3llIWLIAIKNxr4KcJhlAOpj.Ta..",
+      "role": "staff",
+      "createdAt": "2026-09-17T09:56:38.276Z"
+    },
+    {
+      "_id": "staff-42c98722-a8d3-4f90-993c-bc353e10edba",
+      "name": "chirag agarwal",
+      "email": "b231350@skit.ac.in",
+      "passwordHash": "$2a$10$UITtKwQLzat76AzULVEfdeOdrC61rGJsv0Dq9COcBe3NtRiKWDUHi",
+      "role": "staff",
+      "createdAt": "2026-09-17T10:09:29.851Z"
+    },
+    {
+      "_id": "staff-034d1a99-27ad-4b16-bbcb-b60e4a806476",
+      "name": "deep",
+      "email": "test@gmail.com",
+      "passwordHash": "$2a$10$rsKsQ5cabrt0/uX5f9YqjOdXh22JBQUVRp0yhkAHQ7NPbC196ZEwq",
+      "role": "staff",
+      "createdAt": "2026-09-17T10:12:05.211Z"
+    },
+    {
+      "_id": "staff-6ccc97c2-645b-49ff-b50d-0cdae6b22dbe",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "passwordHash": "$2a$10$jKYq84q.Ck9WeuWVwGq.8eSog8Er/cToIIzRf/Ah0AY0wlbM3ulKa",
+      "role": "staff",
+      "createdAt": "2026-09-17T10:33:58.089Z"
+    }
+  ],
+  "members": [
+    {
+      "_id": "member-554f010d-baa8-4389-a7d9-d25a9ef24689",
+      "name": "ayushi",
+      "phone": "8690464455",
+      "email": "",
+      "tier": "Bronze",
+      "balance": 120,
+      "lifetimePoints": 120,
+      "createdAt": "2026-09-17T09:56:53.477Z",
+      "updatedAt": "2026-09-17T09:57:01.013Z"
+    }
+  ],
+  "transactions": [
+    {
+      "_id": "transaction-3b6e522e-fe13-46c9-b6dd-197e41473a68",
+      "member": "member-554f010d-baa8-4389-a7d9-d25a9ef24689",
+      "type": "earn",
+      "amount": 400,
+      "points": 40,
+      "description": "Purchase",
+      "createdAt": "2026-09-17T09:56:59.230Z"
+    },
+    {
+      "_id": "transaction-2dd5e61a-409b-43b2-96b2-467f43e04fc5",
+      "member": "member-554f010d-baa8-4389-a7d9-d25a9ef24689",
+      "type": "earn",
+      "amount": 400,
+      "points": 40,
+      "description": "Purchase",
+      "createdAt": "2026-09-17T09:57:00.391Z"
+    },
+    {
+      "_id": "transaction-30eea4b5-2041-4410-a848-92fe20f0f286",
+      "member": "member-554f010d-baa8-4389-a7d9-d25a9ef24689",
+      "type": "earn",
+      "amount": 400,
+      "points": 40,
+      "description": "Purchase",
+      "createdAt": "2026-09-17T09:57:01.013Z"
+    }
+  ],
+  "tiers": [
+    {
+      "_id": "tier-bronze",
+      "name": "Bronze",
+      "threshold": 0,
+      "multiplier": 1,
+      "tone": "bronze"
+    },
+    {
+      "_id": "tier-silver",
+      "name": "Silver",
+      "threshold": 500,
+      "multiplier": 1.25,
+      "tone": "silver"
+    },
+    {
+      "_id": "tier-gold",
+      "name": "Gold",
+      "threshold": 1500,
+      "multiplier": 1.5,
+      "tone": "gold"
+    }
+  ],
+  "redemptionItems": [
+    {
+      "_id": "reward-espresso",
+      "name": "Free espresso",
+      "cost": 80,
+      "category": "Drinks",
+      "description": "A double shot, on us.",
+      "imageUrl": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=900&q=80",
+      "available": true
+    },
+    {
+      "_id": "reward-pastry",
+      "name": "Pastry pick",
+      "cost": 120,
+      "category": "Bakery",
+      "description": "Choose any pastry from the counter.",
+      "imageUrl": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=80",
+      "available": true
+    },
+    {
+      "_id": "reward-latte",
+      "name": "Signature latte",
+      "cost": 180,
+      "category": "Drinks",
+      "description": "Our seasonal latte, made your way.",
+      "imageUrl": "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=900&q=80",
+      "available": true
+    },
+    {
+      "_id": "reward-brunch",
+      "name": "Brunch for two",
+      "cost": 450,
+      "category": "Food",
+      "description": "Two mains and two coffees.",
+      "imageUrl": "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=900&q=80",
+      "available": true
+    }
+  ]
+}

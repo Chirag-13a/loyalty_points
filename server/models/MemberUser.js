@@ -1,0 +1,2 @@
+const mongoose = require('mongoose');
+module.exports = mongoose.model('MemberUser', new mongoose.Schema({ name: String, phone: { type: String, unique: true, required: true }, email: String, profilePhoto: String, passwordHash: String, member: { type: mongoose.Schema.Types.ObjectId, ref: 'Member', required: true }, role: { type: String, default: 'member' } }, { timestamps: true }));

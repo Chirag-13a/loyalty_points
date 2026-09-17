@@ -1,0 +1,2 @@
+const mongoose = require('mongoose');
+module.exports = mongoose.model('Offer', new mongoose.Schema({ title: String, description: String, validTill: Date, imageUrl: String, active: { type: Boolean, default: true } }, { timestamps: true }));

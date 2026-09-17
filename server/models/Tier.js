@@ -1,0 +1,2 @@
+const mongoose = require('mongoose');
+module.exports = mongoose.model('Tier', new mongoose.Schema({ name: { type: String, enum: ['Bronze', 'Silver', 'Gold'], unique: true }, threshold: Number, multiplier: Number, tone: String }));

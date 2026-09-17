@@ -1,0 +1,10 @@
+const router = require('express').Router();
+const { listRewards } = require('../controllers/rewardController');
+const { createReward, updateReward } = require('../controllers/rewardController');
+const { authRequired } = require('../middleware/auth');
+const { isStaff } = require('../middleware/roles');
+const { validateBody, required, positiveNumber } = require('../middleware/validate');
+router.get('/', listRewards);
+router.post('/', authRequired, isStaff, validateBody([required('name', 'Name'), positiveNumber('cost')]), createReward);
+router.patch('/:id', authRequired, isStaff, validateBody([required('name', 'Name'), positiveNumber('cost')]), updateReward);
+module.exports = router;

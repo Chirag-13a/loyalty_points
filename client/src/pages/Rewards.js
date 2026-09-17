@@ -1,0 +1,5 @@
+import React from 'react';
+import { Coffee } from 'lucide-react';
+import { tiers } from '../api/axiosInstance';
+
+export default function Rewards() { return <div className="page-width rewards-page"><div className="rewards-intro"><span className="eyebrow">THE COMMON GROUND PROGRAMME</span><h1>Good coffee.<br /><em>Better regulars.</em></h1><p>Earn points every time you visit, unlock better multipliers, and spend them on the things that make a good day great.</p></div><div className="tier-grid">{tiers.map((tier, i) => <div className={`tier-card ${tier.color}`} key={tier.name}><span>0{i + 1}</span><h2>{tier.name}</h2><p>{tier.threshold === 0 ? 'Everyone starts here.' : `Reach ${tier.threshold.toLocaleString()} lifetime points.`}</p><strong>{tier.multiplier}<small> earn rate</small></strong></div>)}</div><div className="earn-note"><Coffee size={22} /><div><b>1 point per ₹10 spent</b><p>Your tier multiplier is applied automatically to every purchase.</p></div></div></div>; }
