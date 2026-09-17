@@ -2,6 +2,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import { connectDB } from './config/db.js';
+import { apiLimiter, authLimiter } from './middleware/rateLimit.js';
 import authRoutes from './routes/auth.js';
 import memberRoutes from './routes/members.js';
 import rewardsRoutes from './routes/rewards.js';
@@ -18,9 +19,9 @@ app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 
-app.use('/api/auth', authRoutes);
-app.use('/api/members', memberRoutes);
-app.use('/api/rewards', rewardsRoutes);
+app.use('/api/auth', authLimiter, authRoutes);
+app.use('/api/members', apiLimiter, memberRoutes);
+app.use('/api/rewards', apiLimiter, rewardsRoutes);
 
 const seedRewards = async () => {
   const defaults = [

@@ -6,5 +6,6 @@ export const connectDB = async () => {
     throw new Error('MONGODB_URI is required');
   }
 
+  mongoose.set('sanitizeFilter', true);
   await mongoose.connect(mongoUri);
 };
