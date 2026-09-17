@@ -4,7 +4,14 @@ import { StaffUser } from '../models/StaffUser.js';
 
 const router = express.Router();
 
-const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+const isValidEmail = (email) => {
+  if (typeof email !== 'string' || email.length < 5 || email.length > 254) {
+    return false;
+  }
+  const atIndex = email.indexOf('@');
+  const dotIndex = email.lastIndexOf('.');
+  return atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1;
+};
 
 const signToken = (user) =>
   jwt.sign({ id: user._id, email: user.email, name: user.name }, process.env.JWT_SECRET || 'dev-secret', {
